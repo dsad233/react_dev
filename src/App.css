@@ -1,0 +1,70 @@
+.App {
+  text-align: center;
+}
+
+.loginbar {
+  display: flex;
+  justify-content: end;
+}
+
+header {
+  padding: 5px 5px 0px 5px;
+}
+
+.titlebox {
+  background-color: rgb(244, 193, 193);
+  width: auto;
+  height: 150px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 0px gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: white;
+  font-size: 30px;
+  font-weight: 10;
+}
+
+body {
+  padding: 5px 10px 0px 10px;
+}
+
+.bodybox {
+  background-color: seashell;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 0px gray;
+  width: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bodyp {
+  color: black;
+  font-size: medium;
+}
+
+footer {
+  padding: 5px 10px 0px 10px;
+}
+
+.footerbox {
+  background-color: cornflowerblue;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 0px gray;
+  width: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+
+.footerp {
+  font-size: small;
+  font-style: italic;
+}
+
