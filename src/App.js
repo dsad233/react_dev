@@ -8,6 +8,11 @@ function App() {
   const nowDate = String(new Date());
 
   const [log, func] = useState("블로그");
+
+  const [count, likefunc] = useState(0);
+
+  const bodyTitle = ['1번 블로그 제목', '2번 블로그 제목'];
+
   return (
     <div className="App">
       <div className='loginbar'>
@@ -24,14 +29,15 @@ function App() {
 
       <body>
         <div className='bodybox'>
-          {/* <p className='bodyp'>{ body }</p> */}
           <div className='ptagbox'>
-            <p>게시글 제목</p>
+            <p>{ bodyTitle[0] }</p>
             <p>게시글 내용</p>
             <p>{ nowDate }</p>
+            <button onClick={ () => likefunc(count + 1) }>👍 { count }</button>
+            <button onClick={ () => likefunc(count > 0 ? count - 1 : count) }>👎</button>
           </div>
           <div className='ptagbox'>
-            <p>게시글 제목</p>
+            <p>{ bodyTitle[1] }</p>
             <p>게시글 내용</p>
             <p>{ nowDate }</p>
           </div>
