@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  // let postTitle = '제목문';
   let botton = "여기는 하단 바 입니다.";
 
   const nowDate = String(new Date());
@@ -11,7 +10,35 @@ function App() {
 
   const [count, likefunc] = useState(0);
 
-  const bodyTitle = ['1번 블로그 제목', '2번 블로그 제목'];
+  const bodyTitle = ['1번 블로그 제목', '2번 블로그 제목', '3번 블로그 제목', '4번 블로그 제목', '5번 블로그 제목', '6번 블로그 제목', '7번 블로그 제목'];
+  bodyTitle.sort((a, b) => b.localeCompare(a));
+
+  // 데이터 조회
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+		const fetchData = async() => {
+          const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+          const result = res.json();
+          // console.log("data : ",result);
+          return result; 
+        }	
+        
+        fetchData().then(res => setData(res)).catch((err) => console.error(err));
+    }, []);
+
+  function responseData(data){
+    return data.map((item, index) => {
+      return (
+      <div className="ptagbox" key={index}>
+        <p>{item.id}</p>
+        <p>{item.title}</p>
+        <p>게시글 내용</p>
+        <p>{nowDate}</p>
+      </div>
+      );
+    });
+  }
 
   return (
     <div className="App">
@@ -42,30 +69,34 @@ function App() {
             <p>{ nowDate }</p>
           </div>
           <div className='ptagbox'>
-            <p>게시글 제목</p>
+            <p>{ bodyTitle[2] }</p>
             <p>게시글 내용</p>
             <p>{ nowDate }</p>
           </div>
           <div className='ptagbox'>
-            <p>게시글 제목</p>
+            <p>{ bodyTitle[3] }</p>
             <p>게시글 내용</p>
             <p>{ nowDate }</p>
           </div>
           <div className='ptagbox'>
-            <p>게시글 제목</p>
+            <p>{ bodyTitle[4] }</p>
             <p>게시글 내용</p>
             <p>{ nowDate }</p>
           </div>
           <div className='ptagbox'>
-            <p>게시글 제목</p>
+            <p>{ bodyTitle[5] }</p>
             <p>게시글 내용</p>
             <p>{ nowDate }</p>
           </div>
           <div className='ptagbox'>
-            <p>게시글 제목</p>
+            <p>{ bodyTitle[6] }</p>
             <p>게시글 내용</p>
             <p>{ nowDate }</p>
           </div>
+          {
+            responseData(data)
+          }
+
         </div>
       </body>
 
